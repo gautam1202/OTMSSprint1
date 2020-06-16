@@ -14,7 +14,7 @@ public class GetTestResultDaoImplementation implements GetTestResultDao {
 	
 		
 		TestRepository testRepository;
-		public static HashMap<Integer, TestsDTO> testTable;
+		public static HashMap<BigInteger, TestsDTO> testTable;
 		public GetTestResultDaoImplementation()
 		{
 			super();
@@ -22,6 +22,7 @@ public class GetTestResultDaoImplementation implements GetTestResultDao {
 			testTable=TestRepository.getTests();
 		}
 		public TestsDTO getTest(BigInteger testId){
+	
 			return testTable.get(testId);
 		}
 }

@@ -20,7 +20,7 @@ public class TestRepository
 	public static Set<QuestionsDTO> questions=new HashSet<QuestionsDTO>();
 	public static Set<QuestionsDTO> questions2=new HashSet<QuestionsDTO>();
 	public static List<String> questionOptions=new ArrayList<String>();
-	public static HashMap<Integer,TestsDTO> tests=new HashMap<Integer,TestsDTO>();
+	public static HashMap<BigInteger,TestsDTO> tests=new HashMap<BigInteger,TestsDTO>();
 	
 	static {
 		QuestionsDTO ques1=new QuestionsDTO(new BigInteger("1111"), questionOptions,"Ques1",2,new BigDecimal (4),1,new BigDecimal (0));
@@ -47,8 +47,8 @@ public class TestRepository
 		
 		TestsDTO tests1 = new TestsDTO(new BigInteger("10001"),questions,new BigDecimal(20),new BigDecimal(0));
 		TestsDTO tests2 = new TestsDTO(new BigInteger("10002"),questions2,new BigDecimal(20),new BigDecimal(0));
-		tests.put(10001, tests1);
-		tests.put(10002, tests2);
+		tests.put(tests1.getTestId(), tests1);
+		tests.put(tests1.getTestId(), tests2);
 		}
 
 	
@@ -75,7 +75,7 @@ public class TestRepository
 
 
 
-	public static HashMap<Integer, TestsDTO> getTests() {
+	public static HashMap<BigInteger, TestsDTO> getTests() {
 		return tests;
 	}
 
@@ -103,10 +103,9 @@ public class TestRepository
 
 
 
-	public static void setTests(HashMap<Integer, TestsDTO> tests) {
+	public static void setTests(HashMap<BigInteger, TestsDTO> tests) {
 		TestRepository.tests = tests;
 	}
-
 
 
 
