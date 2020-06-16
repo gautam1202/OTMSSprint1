@@ -18,8 +18,8 @@ import com.capgemini.OnlineTest.services.IResultsServices;
 import com.capgemini.OnlineTest.services.ResultsServicesImplementation;
 import com.capgemini.OnlineTest.util.TestRepository;
 public class MainFunction {
-	static IResultsServices resultsobj=new ResultsServicesImplementation();
-	private static TestsDTO testId;
+	static ResultsServicesImplementation resultsobj=new ResultsServicesImplementation();
+	private static BigInteger testId;
     
 	public static void main(String[] args) {
 

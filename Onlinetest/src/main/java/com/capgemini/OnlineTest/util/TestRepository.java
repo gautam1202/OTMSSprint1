@@ -16,13 +16,12 @@ import com.capgemini.OnlineTest.dto.TestsDTO;
 
 public class TestRepository 
 {	
-	public static HashMap<Integer,TestsDTO> tests=new HashMap<Integer,TestsDTO>();
+	
 	public static Set<QuestionsDTO> questions=new HashSet<QuestionsDTO>();
 	public static Set<QuestionsDTO> questions2=new HashSet<QuestionsDTO>();
 	public static List<String> questionOptions=new ArrayList<String>();
+	
 	static {
-		TestsDTO tests1 = new TestsDTO(new BigInteger("10001"),questions,new BigDecimal(20),new BigDecimal(16));
-		TestsDTO tests2 = new TestsDTO(new BigInteger("10002"),questions2,new BigDecimal(20),new BigDecimal(12));
 		QuestionsDTO ques1=new QuestionsDTO(new BigInteger("1111"), questionOptions,"Ques1",2,new BigDecimal (4),1,new BigDecimal (0));
 		QuestionsDTO ques2=new QuestionsDTO(new BigInteger("1112"), questionOptions,"Ques2",1, new BigDecimal(4), 1,new BigDecimal (4));
 		QuestionsDTO ques3=new QuestionsDTO(new BigInteger("1113"), questionOptions,"Ques3",2,new BigDecimal (4),2,new BigDecimal (4));
@@ -43,32 +42,16 @@ public class TestRepository
 		questions2.add(ques8);
 		questions2.add(ques9);
 		questions2.add(ques10);
+	}
 		
+		public static HashMap<Integer,TestsDTO> tests=new HashMap<Integer,TestsDTO>();
+		static{
+		TestsDTO tests1 = new TestsDTO(new BigInteger("10001"),questions,new BigDecimal(20),new BigDecimal(16));
+		TestsDTO tests2 = new TestsDTO(new BigInteger("10002"),questions2,new BigDecimal(20),new BigDecimal(12));
 		tests.put(10001, tests1);
 		tests.put(10002, tests2);
-	
-//	public static HashMap<Integer,TestsDTO> tests=new HashMap<Integer,TestsDTO>();
-//	public static Set<QuestionsDTO> questions=new HashSet<QuestionsDTO>();
-//	public static List<String> questionOptions=new ArrayList<String>();
-//	
-//	static{
-//		TestsDTO tests1 = new TestsDTO(new BigInteger("10001"),questions,new BigDecimal(20),new BigDecimal(16));
-//	QuestionsDTO ques1=new QuestionsDTO(new BigInteger("1111"), questionOptions,"Ques1",2,new BigDecimal (4),1,new BigDecimal (0));
-//	QuestionsDTO ques2=new QuestionsDTO(new BigInteger("1112"), questionOptions,"Ques2",1, new BigDecimal(4), 1,new BigDecimal (4));
-//	QuestionsDTO ques3=new QuestionsDTO(new BigInteger("1113"), questionOptions,"Ques3",2,new BigDecimal (4),2,new BigDecimal (4));
-//	QuestionsDTO ques4=new QuestionsDTO(new BigInteger("1114"), questionOptions,"Ques4",1, new BigDecimal(4),1,new BigDecimal (4));
-//	QuestionsDTO ques5=new QuestionsDTO(new BigInteger("1115"), questionOptions,"Ques5",2,new BigDecimal(4),2,new BigDecimal (4));
-//			
-//	questions.add(ques1);
-//	questions.add(ques2);
-//	questions.add(ques3);
-//	questions.add(ques4);
-//	questions.add(ques5);
-//	
-	
+		}
 
-	
-	}
 	
 
 	
