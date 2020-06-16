@@ -2,6 +2,7 @@ package com.capgemini.OnlineTest.services;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -11,8 +12,8 @@ import com.capgemini.OnlineTest.dto.QuestionsDTO;
 import com.capgemini.OnlineTest.dto.TestsDTO;
 
 public class ResultsServicesImplementation implements IResultsServices {
-	static GetTestResultDaoImplementation tests;
-	TestsDTO test;
+	 GetTestResultDaoImplementation testDAO;
+	TestsDTO testDTO;
 	public BigDecimal getResult(BigInteger testId) throws ResultException 
 	{   
 		if(testId==null)
@@ -20,13 +21,14 @@ public class ResultsServicesImplementation implements IResultsServices {
 			throw new ResultException("test object is null");
 		}
 		else{
-		Set<QuestionsDTO>question=test.getTestQuestions();
+			testDTO=testDAO.getTest(testId);
+		Set<QuestionsDTO>question=testDTO.getTestQuestions();
 		Iterator<QuestionsDTO> it=question.iterator();
 		BigDecimal sum=new BigDecimal(0);
 		while(it.hasNext())
 			{   sum=sum.add(it.next().getMarksScored());
 			}
-		test.setTestMarksScored(sum);
+		testDTO.setTestMarksScored(sum);
 		return sum;
 		}
 		
@@ -37,7 +39,8 @@ public class ResultsServicesImplementation implements IResultsServices {
 	{
 		if(testId==null)
 		{
-			Set<QuestionsDTO>questionSet=test.getTestQuestions();
+			testDTO=testDAO.getTest(testId);
+			Set<QuestionsDTO>questionSet=testDTO.getTestQuestions();
 			Iterator<QuestionsDTO> it=questionSet.iterator();
 			
 			while(it.hasNext())

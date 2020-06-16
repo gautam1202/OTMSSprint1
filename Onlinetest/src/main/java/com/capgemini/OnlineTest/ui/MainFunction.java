@@ -19,8 +19,7 @@ import com.capgemini.OnlineTest.services.ResultsServicesImplementation;
 import com.capgemini.OnlineTest.util.TestRepository;
 public class MainFunction {
 	static ResultsServicesImplementation resultsobj=new ResultsServicesImplementation();
-	private static BigInteger testId;
-    
+	
 	public static void main(String[] args) {
 
 		int choice=0;
@@ -30,13 +29,22 @@ public class MainFunction {
         System.out.println("1. Get Result");
         System.out.println("2. Calculate Marks");
         
+		BigInteger testId;
+        
         try { 
         	choice=input.nextInt();
         switch(choice){
                 case 1: 
-			System.out.println( resultsobj.getResult(testId));
+            	 	
+                	System.out.println("Enter testId");
+                	testId = input.nextBigInteger();
+           	 		System.out.println( resultsobj.getResult(testId));
                                 break;
-                case 2: System.out.println(resultsobj.calculateTotalMarks(testId));
+                                
+                case 2: 
+                	System.out.println("Enter testId");
+                	testId = input.nextBigInteger();
+                	System.out.println(resultsobj.calculateTotalMarks(testId));
                                 break;    
         			  }
 	}

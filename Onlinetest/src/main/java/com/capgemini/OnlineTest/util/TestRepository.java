@@ -20,6 +20,7 @@ public class TestRepository
 	public static Set<QuestionsDTO> questions=new HashSet<QuestionsDTO>();
 	public static Set<QuestionsDTO> questions2=new HashSet<QuestionsDTO>();
 	public static List<String> questionOptions=new ArrayList<String>();
+	public static HashMap<Integer,TestsDTO> tests=new HashMap<Integer,TestsDTO>();
 	
 	static {
 		QuestionsDTO ques1=new QuestionsDTO(new BigInteger("1111"), questionOptions,"Ques1",2,new BigDecimal (4),1,new BigDecimal (0));
@@ -42,12 +43,10 @@ public class TestRepository
 		questions2.add(ques8);
 		questions2.add(ques9);
 		questions2.add(ques10);
-	}
 		
-		public static HashMap<Integer,TestsDTO> tests=new HashMap<Integer,TestsDTO>();
-		static{
-		TestsDTO tests1 = new TestsDTO(new BigInteger("10001"),questions,new BigDecimal(20),new BigDecimal(16));
-		TestsDTO tests2 = new TestsDTO(new BigInteger("10002"),questions2,new BigDecimal(20),new BigDecimal(12));
+		
+		TestsDTO tests1 = new TestsDTO(new BigInteger("10001"),questions,new BigDecimal(20),new BigDecimal(0));
+		TestsDTO tests2 = new TestsDTO(new BigInteger("10002"),questions2,new BigDecimal(20),new BigDecimal(0));
 		tests.put(10001, tests1);
 		tests.put(10002, tests2);
 		}
@@ -55,26 +54,65 @@ public class TestRepository
 	
 
 	
-	public static HashMap<Integer, TestsDTO> getTests() {
-		return tests;
-	}
 	public static Set<QuestionsDTO> getQuestions() {
 		return questions;
 	}
+
+
+
+
+	public static Set<QuestionsDTO> getQuestions2() {
+		return questions2;
+	}
+
+
+
+
 	public static List<String> getQuestionOptions() {
 		return questionOptions;
 	}
-	public static void setQuestionOptions(List<String> questionOptions) {
-		TestRepository.questionOptions = questionOptions;
+
+
+
+
+	public static HashMap<Integer, TestsDTO> getTests() {
+		return tests;
 	}
-	public static void setTests(HashMap<Integer, TestsDTO> tests) {
-		TestRepository.tests = tests;
-	}
+
+
+
+
 	public static void setQuestions(Set<QuestionsDTO> questions) {
 		TestRepository.questions = questions;
 	}
+
+
+
+
+	public static void setQuestions2(Set<QuestionsDTO> questions2) {
+		TestRepository.questions2 = questions2;
+	}
+
+
+
+
+	public static void setQuestionOptions(List<String> questionOptions) {
+		TestRepository.questionOptions = questionOptions;
+	}
+
+
+
+
+	public static void setTests(HashMap<Integer, TestsDTO> tests) {
+		TestRepository.tests = tests;
+	}
+
+
+
+
 	public TestRepository()
 	{
+		
 		
 	}
 	
