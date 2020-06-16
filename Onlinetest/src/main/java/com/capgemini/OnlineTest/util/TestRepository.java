@@ -16,6 +16,7 @@ import com.capgemini.OnlineTest.dto.TestsDTO;
 
 public class TestRepository 
 {	
+	//Database for the Test and Question Class
 	
 	public static Set<QuestionsDTO> questions=new HashSet<QuestionsDTO>();
 	public static Set<QuestionsDTO> questions2=new HashSet<QuestionsDTO>();
@@ -53,7 +54,7 @@ public class TestRepository
 
 	
 
-	
+	//Getters and Setters of the TestDTO class objects
 	public static Set<QuestionsDTO> getQuestions() {
 		return questions;
 	}

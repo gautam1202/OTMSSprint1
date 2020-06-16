@@ -14,8 +14,10 @@ import com.capgemini.OnlineTest.dto.TestsDTO;
 public class ResultsServicesImplementation implements IResultsServices {
 	 GetTestResultDaoImplementation testDAO=new GetTestResultDaoImplementation();
 	TestsDTO testDTO;
+	
+	
 	public BigDecimal getResult(BigInteger testId) throws ResultException 
-	{   
+	{   //takes the TestId and passes all the objects of the TestDTO class
 		if(testId==null)
 		{
 			
@@ -41,7 +43,8 @@ public class ResultsServicesImplementation implements IResultsServices {
 	}
 	
 	public BigDecimal calculateTotalMarks(BigInteger testId) throws ResultException
-	{
+	{   //takes the TestId and passes all the objects of the TestDTO class
+
 		if(testId==null)
 		{
 			throw new ResultException("test object is null");
