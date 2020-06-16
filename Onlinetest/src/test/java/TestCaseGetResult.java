@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
-
+import org.junit.Assert;
 import com.capgemini.OnlineTest.Exceptions.ResultException;
 import com.capgemini.OnlineTest.dto.QuestionsDTO;
 import com.capgemini.OnlineTest.dto.TestsDTO;
@@ -63,25 +63,14 @@ public class TestCaseGetResult {
 ////			BigDecimal ob= Examination.getResult(test.getTestId());
 //        assertEquals(new BigDecimal(16),resultobj);
 //    }
-//	
-//	 @Test
-//	   public void TC_01()
-//	 {		
-//		  
-//	    assertThrows(ResultException.class,()->
-//	    {
-//	    	resultobj.
-//	    }
-//	    }
+
 	 @Test
 	    void TC_01()
 	 {	        
-		 
-		 assertThrows(ResultException.class,()->{resultobj.
+		 ResultsServicesImplementation resultobj=new ResultsServicesImplementation();
+		 assertThrows(ResultException.class,()->{resultobj.getResult(null);});
 	 }
-//		 
-//	    	assertThrows(NullException.class,()->{object.checkId(null);});
-//	    }
+
 	@Test
 	void TC_02() throws ResultException
 	{
