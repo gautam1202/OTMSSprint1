@@ -12,28 +12,32 @@ import com.capgemini.OnlineTest.dto.TestsDTO;
 
 public class ResultsServicesImplementation implements IResultsServices {
 	static GetTestResultDaoImplementation tests;
-	public BigDecimal getResult(TestsDTO testId) throws ResultException 
+	TestsDTO test;
+	public BigDecimal getResult(BigInteger testId) throws ResultException 
 	{   
-		if(testId!=null)
+		if(testId==null)
 		{
-		Set<QuestionsDTO>question=testId.getTestQuestions();
+			throw new ResultException("test object is null");
+		}
+		else{
+		Set<QuestionsDTO>question=test.getTestQuestions();
 		Iterator<QuestionsDTO> it=question.iterator();
 		BigDecimal sum=new BigDecimal(0);
 		while(it.hasNext())
 			{   sum=sum.add(it.next().getMarksScored());
 			}
-		testId.setTestMarksScored(sum);
-		return sum;}
-		else throw new ResultException("test object is null");
+		test.setTestMarksScored(sum);
+		return sum;
+		}
 		
 		
 	}
 	
-	public BigDecimal calculateTotalMarks(TestsDTO testId) throws ResultException
+	public BigDecimal calculateTotalMarks(BigInteger testId) throws ResultException
 	{
-		if(testId!=null)
+		if(testId==null)
 		{
-			Set<QuestionsDTO>questionSet=testId.getTestQuestions();
+			Set<QuestionsDTO>questionSet=test.getTestQuestions();
 			Iterator<QuestionsDTO> it=questionSet.iterator();
 			
 			while(it.hasNext())

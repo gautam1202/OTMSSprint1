@@ -8,6 +8,6 @@ import com.capgemini.OnlineTest.dto.TestsDTO;
 
 public interface IResultsServices {
 	
-	 public BigDecimal getResult(TestsDTO testId) throws ResultException;
-	 public BigDecimal calculateTotalMarks(TestsDTO testId) throws ResultException;
+	 public BigDecimal getResult(BigInteger testId) throws ResultException;
+	 public BigDecimal calculateTotalMarks(BigInteger testId) throws ResultException;
 }
