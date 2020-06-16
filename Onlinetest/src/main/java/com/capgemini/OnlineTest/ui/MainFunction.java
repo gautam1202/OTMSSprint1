@@ -52,10 +52,6 @@ public class MainFunction {
         {
     	System.out.println(exception.getMessage());
         }
-        catch(Exception exception)
-        {
-        	System.out.println(exception);
-        }
 	}}
 
     		

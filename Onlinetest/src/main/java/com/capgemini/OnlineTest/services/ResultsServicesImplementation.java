@@ -12,24 +12,29 @@ import com.capgemini.OnlineTest.dto.QuestionsDTO;
 import com.capgemini.OnlineTest.dto.TestsDTO;
 
 public class ResultsServicesImplementation implements IResultsServices {
-	 GetTestResultDaoImplementation testDAO;
+	 GetTestResultDaoImplementation testDAO=new GetTestResultDaoImplementation();
 	TestsDTO testDTO;
 	public BigDecimal getResult(BigInteger testId) throws ResultException 
 	{   
 		if(testId==null)
 		{
+			
 			throw new ResultException("test object is null");
 		}
 		else{
 			testDTO=testDAO.getTest(testId);
 		Set<QuestionsDTO>question=testDTO.getTestQuestions();
+
 		Iterator<QuestionsDTO> it=question.iterator();
 		BigDecimal sum=new BigDecimal(0);
+
 		while(it.hasNext())
 			{   sum=sum.add(it.next().getMarksScored());
 			}
 		testDTO.setTestMarksScored(sum);
+
 		return sum;
+		
 		}
 		
 		
@@ -39,25 +44,34 @@ public class ResultsServicesImplementation implements IResultsServices {
 	{
 		if(testId==null)
 		{
+			throw new ResultException("test object is null");
+
+			
+		}
+		else{
 			testDTO=testDAO.getTest(testId);
+
 			Set<QuestionsDTO>questionSet=testDTO.getTestQuestions();
+
 			Iterator<QuestionsDTO> it=questionSet.iterator();
+		
 			
 			while(it.hasNext())
 				{   QuestionsDTO question=it.next();
+	
 					if(question.getChosenAnswer().equals(question.getQuestionAnswer()))
 					{
 						question.setMarksScored(question.getQuestionMarks());
+						
 					}
 					else 
 					{
 						question.setMarksScored(new BigDecimal(0));
+
 					}
 				}
 			return getResult(testId);
-		}
-		else throw new ResultException("test object is null");
 	}
-
+	}
 	
 }

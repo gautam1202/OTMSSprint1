@@ -1,30 +1,37 @@
-//import static org.junit.Assert.assertEquals;
-//
-//import java.math.BigDecimal;
-//import java.math.BigInteger;
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.HashSet;
-//import java.util.List;
-//import java.util.Set;
-//
-//import org.junit.Test;
-//
-//import com.capgemini.OnlineTest.dto.QuestionsDTO;
-//import com.capgemini.OnlineTest.dto.TestsDTO;
-//import com.capgemini.OnlineTest.services.ResultsServicesImplementation;
-//
-//public class TestCaseGetResult {
+import static org.junit.Assert.assertEquals;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.junit.Test;
+
+import com.capgemini.OnlineTest.Exceptions.ResultException;
+import com.capgemini.OnlineTest.dto.QuestionsDTO;
+import com.capgemini.OnlineTest.dto.TestsDTO;
+import com.capgemini.OnlineTest.services.ResultsServicesImplementation;
+
+public class TestCaseGetResult {
+	
+	public TestCaseGetResult() {
+		// TODO Auto-generated constructor stub
+	}
+	 ResultsServicesImplementation resultobj=new ResultsServicesImplementation();
+	 TestsDTO testDTO;
+
 //	@Test
 //    public void getResultTest()
 //    {
-//		HashMap<Integer,TestsDTO> tests=new HashMap<Integer,TestsDTO>();
 //		Set<QuestionsDTO> questions=new HashSet<QuestionsDTO>();
 //		Set<QuestionsDTO> questions2=new HashSet<QuestionsDTO>();
 //		List<String> questionOptions=new ArrayList<String>();
-//			TestsDTO tests1 = new TestsDTO(new BigInteger("10001"),questions,new BigDecimal(20),new BigDecimal(16));
-//			TestsDTO tests2 = new TestsDTO(new BigInteger("10002"),questions2,new BigDecimal(20),new BigDecimal(12));
-//			QuestionsDTO ques1=new QuestionsDTO(new BigInteger("1111"), questionOptions,"Ques1",2,new BigDecimal (4),1,new BigDecimal (0));
+//		HashMap<BigInteger,TestsDTO> tests=new HashMap<BigInteger,TestsDTO>();
+//
+//		QuestionsDTO ques1=new QuestionsDTO(new BigInteger("1111"), questionOptions,"Ques1",2,new BigDecimal (4),1,new BigDecimal (0));
 //			QuestionsDTO ques2=new QuestionsDTO(new BigInteger("1112"), questionOptions,"Ques2",1, new BigDecimal(4), 1,new BigDecimal (4));
 //			QuestionsDTO ques3=new QuestionsDTO(new BigInteger("1113"), questionOptions,"Ques3",2,new BigDecimal (4),2,new BigDecimal (4));
 //			QuestionsDTO ques4=new QuestionsDTO(new BigInteger("1114"), questionOptions,"Ques4",1, new BigDecimal(4),1,new BigDecimal (4));
@@ -44,13 +51,50 @@
 //			questions2.add(ques8);
 //			questions2.add(ques9);
 //			questions2.add(ques10);
+//			TestsDTO tests1 = new TestsDTO(new BigInteger("10001"),questions,new BigDecimal(20),new BigDecimal(16));
+//			TestsDTO tests2 = new TestsDTO(new BigInteger("10002"),questions2,new BigDecimal(20),new BigDecimal(12));
 //			
-//			tests.put(10001, tests1);
-//			tests.put(10002, tests2);
+//			tests.put(tests1.getTestId(), tests1);
+//			tests.put(tests1.getTestId(), tests2);
 //			
-//			ResultsServicesImplementation resultobj=new ResultsServicesImplementation(); //.addTest(tests);
-//			resultobj.getResult(tests.get(testId));
+//			ResultsServicesImplementation resultobj=new ResultsServicesImplementation(); 
+//			resultobj.getResult(BigInteger testId)
+//			resultobj.getResult(tests.get(testId);
 ////			BigDecimal ob= Examination.getResult(test.getTestId());
 //        assertEquals(new BigDecimal(16),resultobj);
 //    }
-//}
+//	
+//	 @Test
+//	   public void TC_01()
+//	 {		
+//		  
+//	    assertThrows(ResultException.class,()->
+//	    {
+//	    	resultobj.
+//	    }
+//	    }
+	 @Test
+	    void TC_01()
+	 {	        
+		 
+		 assertThrows(ResultException.class,()->{resultobj.
+	 }
+//		 
+//	    	assertThrows(NullException.class,()->{object.checkId(null);});
+//	    }
+	@Test
+	void TC_02() throws ResultException
+	{
+		 System.out.println("Verifying Test Id");
+	  assertEquals("10001",testDTO.getTestId());
+	}
+	
+	@Test
+	  public void TC_03() throws ResultException
+	  {	
+		  
+		  System.out.println("Verifying obtained marks");
+		  assertEquals("12" , resultobj.getResult(BigInteger.valueOf(10001)));
+		  
+	  }
+}
