@@ -43,8 +43,7 @@ public class ResultsServicesImplementation implements IResultsServices {
 	}
 	
 	public BigDecimal calculateTotalMarks(BigInteger testId) throws ResultException
-	{   //takes the TestId and passes all the objects of the TestDTO class
-
+	{
 		if(testId==null)
 		{
 			throw new ResultException("test object is null");

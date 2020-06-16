@@ -1,3 +1,4 @@
+package cim.capgemini.OnlineTest.Testcases;
 import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;
@@ -33,7 +34,7 @@ public class TestCaseGetResult {
 
 
 	@Test
-	  public void TC_03() throws ResultException
+	  public void TC_02() throws ResultException
 	  {	
 		  
 		  System.out.println("Verifying obtained marks");
@@ -41,18 +42,5 @@ public class TestCaseGetResult {
 		  
 	  }
 	
-	@Test
-	  public void TC_02()
-	  {
-		  
-		  System.out.println("Verifying Test title");
-		  
-		  
-		  
-		  assertEquals("Core Java Test", testService.showTest(BigInteger.valueOf(101)).getTestTitle());
-		  
-		  System.out.println("Verifying obtained marks");
-		  assertEquals(BigDecimal.valueOf(80), testService.showTest(BigInteger.valueOf(101)).getTestMarksScored());
-		  
-	  }
+	
 }
